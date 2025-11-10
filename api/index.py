@@ -1,11 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
-@app.route('/')
+@app.route("/")
 def home():
-    return 'Hello, World!'
+    return render_template("index.html", name="Vercel Flask")
 
-@app.route('/about')
+@app.route("/about")
 def about():
-    return 'About'
+    return "About Page ✅"
+    app.run(debug=True)
+
